@@ -1,4 +1,4 @@
-FROM debian:trixie-slim AS base
+FROM debian:bullseye-slim AS base
 FROM base AS build-stage
 
 ARG VERSION
@@ -30,14 +30,5 @@ RUN \
 FROM base AS final
 
 COPY --from=build-stage /usr/local/bin /usr/local/bin
-
-# RUN \
-# 	set -ex; \
-# 	apt-get update; \
-# 	apt-get install -y --no-install-recommends \
-# 	libcurl4 \
-# 	libgsl27 \
-# 	libperl5.34; \
-# 	rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["slim"]

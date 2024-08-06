@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim AS base
+FROM debian:bookworm-slim AS base
 FROM base AS build-stage
 
 ARG VERSION
